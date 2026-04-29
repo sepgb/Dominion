@@ -765,6 +765,10 @@ footer {
         margin: 40px 0 30px;
     }
 
+    .intro-image {
+        display: none;
+    }
+
     .section-header h2 {
         font-size: 30px;
         margin-top: -3px;
