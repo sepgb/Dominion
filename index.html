@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo" id="home">
+                    <img src="Images/logo.png" class="nav-logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links" id="home">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" id="home" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-video-background">
+                <video autoplay muted loop playsinline>
+                    <source src="Images/hero-bg.mp4" type="video/mp4">
+                </video>
+                <div class="hero-video-overlay"></div>
+            </div>
+
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <h1>MAKE YOUR BODY <span>FIT & HEALTHY</span></h1>
+                    <p>Transform your life with our expert trainers and state-of-the-art facilities. Join thousands of
+                        members together with thousands of success fitness stories in Dominion.</p>
+                    <div class="hero-buttons">
+                        <button class="btn-primary" onclick="location.href='merch.html'"><i
+                                class="fa-solid fa-cart-shopping"></i>&nbsp BUY OUR MERCH</button>
+                        <button class="btn-outline" onclick="location.href='about.html'">ABOUT US</button>
+                    </div>
+                </div>
+                <div class="hero-image"></div>
+            </div>
+        </section>
+
+        <section class="services">
+            <div class="container">
+                <div class="section-header">
+                    <span>WHAT WE OFFER</span>
+                    <h2>Our Premium Services</h2>
+                    <p class="section-subtitle">Comprehensive fitness solutions tailored to your needs</p>
+                </div>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <i class="fas fa-dumbbell"></i>
+                        <h3>Strength Training</h3>
+                        <p>Build muscle with our professional equipment and certified guidance.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-heartbeat"></i>
+                        <h3>Cardio Fitness</h3>
+                        <p>Improve heart health and burn calories with our modern cardio machines and HIIT classes.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-om"></i>
+                        <h3>Yoga & Meditation</h3>
+                        <p>Find inner peace and improve flexibility with expert-led sessions for all levels.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-apple-alt"></i>
+                        <h3>Nutrition Coaching</h3>
+                        <p>Personalized meal plans and dietary advice to complement your fitness journey.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-basketball"></i>
+                        <h3>Sports Conditioning</h3>
+                        <p>Sport-specific training to enhance agility, speed, and overall athletic performance.</p>
+                    </div>
+                    <div class="service-card">
+                        <i class="fas fa-chalkboard-teacher"></i>
+                        <h3>Personal Training</h3>
+                        <p>One-on-one sessions with expert trainers to fast-track your results.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="featured-programs">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Popular <b style="color: #e53e3e;">Programs</b></h2>
+                    <p class="section-subtitle">Our most in-demand classes with proven results</p>
+                </div>
+                <div class="program-cards">
+                    <div class="program-card">
+                        <div class="program-img">
+                            <img src="Images/program1.jpg">
+                        </div>
+                        <h3>Strength Foundation</h3>
+                        <p>Build raw power and muscle mass with compound lifts. This 8‑week program focuses on linear
+                            progression.</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-fire"></i> Advanced</span>
+                        </div>
+                        <button class="btn-small" onclick="location.href='programs.html#program1'">Learn More →</button>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-img">
+                            <img src="Images/program5.jpg">
+                        </div>
+                        <h3>Cardio Endurance</h3>
+                        <p>Boost stamina and heart health with progressive running, cycling, and rowing sessions.</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-fire"></i> Intermediate</span>
+                        </div>
+                        <button class="btn-small" onclick="location.href='programs.html#program5'">Learn More →</button>
+                    </div>
+
+                    <div class="program-card">
+                        <div class="program-img">
+                            <img src="Images/program3.jpg">
+                        </div>
+                        <h3>Yoga</h3>
+                        <p>Increase flexibility, reduce stress, and improve posture. This program includes guided
+                            relaxation.</p>
+                        <div class="program-meta">
+                            <span><i class="fas fa-fire"></i> Beginner</span>
+                        </div>
+                        <button class="btn-small" onclick="location.href='programs.html#program3'">Learn More →</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner">
+            <div class="container cta-banner-container">
+                <div class="bmi-card">
+                    <div class="bmi-header">
+                        <i class="fas fa-calculator"></i>
+                        <h3>BMI Calculator</h3>
+                    </div>
+                    <div class="bmi-field-group">
+                        <div class="bmi-field">
+                            <label>Height (cm)</label>
+                            <input type="number">
+                        </div>
+                        <div class="bmi-field">
+                            <label>Weight (kg)</label>
+                            <input type="number">
+                        </div>
+                    </div>
+                    <div class="bmi-result-demo">
+                        <span class="bmi-value">Your BMI: </span>
+                    </div>
+                    <button class="btn-bmi-dummy" type="button">Calculate</button>
+                </div>
+
+                <div class="cta-content">
+                    <h2>Ready to Transform Your Life?</h2>
+                    <p>Join Dominion today and get your first week FREE</p>
+                    <button class="btn-primary-large" onclick="location.href='membership.html'">SUBSCRIBE</button>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer style="margin-top: 0px;">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p style="max-width: 100%;"><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm
+                    </p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .section-header {
+            text-align: center;
+            margin: 40px 0 35px;
+        }
+
+        .section-header span {
+            color: #e53e3e;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 47px;
+            font-weight: 800;
+            margin-top: -17px;
+        }
+
+        .section-subtitle {
+            color: #6a6a7a;
+            margin-top: -10px;
+            font-size: 19px;
+        }
+
+        .programs-list {
+            margin-top: 40px;
+        }
+
+        .program-item {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            margin-top: 10px;
+            padding: 60px;
+            margin-bottom: -180px;
+            scroll-margin-top: 160px;
+        }
+
+        .program-item:last-child {
+            border-bottom: none;
+        }
+
+        .program-media {
+            flex: 1.2;
+            min-width: 280px;
+        }
+
+        .program-img {
+            position: relative;
+            width: 100%;
+            height: 20%;
+            border-top-left-radius: 28px;
+            border-top-right-radius: 28px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+            border-top: 2px groove #e53e3e;
+            border-left: 2px groove #e53e3e;
+            border-right: 2px groove #e53e3e;
+            border-bottom: 2px groove #e53e3e;
+            margin-bottom: 20px;
+            box-shadow: 0 0px 5px #e53e3e;
+        }
+
+        .program-img::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.315), rgba(0, 0, 0, 0.759));
+            pointer-events: none;
+            border-top-left-radius: 28px;
+            border-top-right-radius: 28px;
+            border-bottom-left-radius: 5px;
+            border-bottom-right-radius: 5px;
+        }
+
+        .program-img img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .program-video {
+            background: #111;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border-bottom-left-radius: 28px;
+            border-bottom-right-radius: 28px;
+            border-top: 2px groove #e53e3e;
+            border-left: 2px groove #e53e3e;
+            border-right: 2px groove #e53e3e;
+            border-bottom: 2px groove #e53e3e;
+            overflow: hidden;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px #e53e3e;
+        }
+
+        .program-video video {
+            width: 100%;
+            display: block;
+            max-height: 200px;
+            object-fit: cover;
+        }
+
+        .video-label {
+            background: #111116;
+            color: #ea5a5a;
+            font-size: 12px;
+            padding: 5px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .program-content {
+            flex: 1.5;
+        }
+
+        .program-title {
+            font-size: 38px;
+            font-weight: 800;
+            margin-bottom: 12px;
+            color: #111;
+            letter-spacing: -0.5px;
+        }
+
+        .difficulty {
+            display: inline-block;
+            padding: 5px 14px;
+            border-radius: 40px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: 0.5px;
+        }
+
+        .difficulty.beginner {
+            background: #d4edda;
+            color: #155724;
+        }
+
+        .difficulty.intermediate {
+            background: #fff3cd;
+            color: #856404;
+        }
+
+        .difficulty.advanced {
+            background: #f8d7da;
+            color: #721c24;
+        }
+
+        .program-description {
+            color: #444;
+            line-height: 1.7;
+            font-size: 16px;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .btn-sched {
+            background: transparent;
+            border: 2px solid #e53e3e;
+            padding: 10px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            color: #e53e3e;
+            cursor: pointer;
+            transition: 0.3s ease;
+            font-size: 14px;
+        }
+
+        .btn-sched:hover {
+            background: #e53e3e;
+            color: white;
+        }
+
+        /* Schedule access section (replaces CTA) */
+        .schedule-access {
+            text-align: center;
+            background: linear-gradient(135deg, #111116 0%, #1e1e2a 100%);
+            padding: 60px 30px;
+            border-radius: 40px;
+            margin: 100px 0 100px;
+            color: white;
+        }
+
+        .schedule-access h2 {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .schedule-access h2 span {
+            color: #e53e3e;
+        }
+
+        .schedule-access p {
+            font-size: 18px;
+            max-width: 600px;
+            margin: 0 auto 25px;
+            opacity: 0.9;
+        }
+
+        .btn-schedule {
+            display: inline-block;
+            background: #e53e3e;
+            color: white;
+            padding: 14px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .btn-schedule i {
+            margin-right: 8px;
+        }
+
+        .btn-schedule:hover {
+            background: #c52222;
+            transform: scale(1.03);
+        }
+
+        @media (max-width: 992px) {
+            .section-header h2 {
+                font-size: 32px;
+            }
+
+            .program-title {
+                font-size: 32px;
+            }
+
+            .schedule-access {
+                margin: 60px 0;
+                padding: 50px 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header {
+                margin: 40px 0 30px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+                margin-top: -10px;
+            }
+
+            .section-subtitle {
+                margin-top: 0px;
+                font-size: 16px;
+                line-height: 1.1;
+            }
+
+            .program-item {
+                flex-direction: column;
+                padding: 30px 20px;
+                margin-bottom: 0;
+                gap: 25px;
+                scroll-margin-top: -30px;
+            }
+
+            .program-media {
+                width: 100%;
+            }
+
+            .program-img img {
+                display: none;
+            }
+
+            .program-img {
+                border: none;
+            }
+
+            .program-video {
+                border-top-left-radius: 28px;
+                border-top-right-radius: 28px;
+                max-height: 240px;
+                box-shadow: none;
+            }
+
+            .program-content {
+                width: 100%;
+            }
+
+            .program-title {
+                font-size: 28px;
+            }
+
+            .program-description {
+                font-size: 15px;
+                text-align: left;
+            }
+
+            .btn-sched {
+                width: 100%;
+                text-align: center;
+                display: inline-block;
+            }
+
+            hr {
+                margin: 0 20px;
+            }
+
+            .schedule-access {
+                margin: 50px 0;
+                padding: 40px 20px;
+                border-radius: 30px;
+            }
+
+            .schedule-access h2 {
+                font-size: 28px;
+            }
+
+            .schedule-access p {
+                font-size: 16px;
+                padding: 0 10px;
+            }
+
+            .btn-schedule {
+                padding: 12px 30px;
+                font-size: 16px;
+            }
+
+            .footer-col[style*="margin-left"] {
+                margin-left: 0 !important;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .section-header h2 {
+                font-size: 24px;
+            }
+
+            .program-item {
+                padding: 20px 15px;
+            }
+
+            .program-title {
+                font-size: 24px;
+            }
+
+            .difficulty {
+                font-size: 10px;
+                padding: 4px 12px;
+            }
+
+            .program-description {
+                font-size: 14px;
+            }
+
+            .program-video video {
+                max-height: 180px;
+            }
+
+            .video-label {
+                font-size: 10px;
+            }
+
+            .schedule-access h2 {
+                font-size: 24px;
+            }
+
+            .schedule-access p {
+                font-size: 14px;
+            }
+
+            .btn-schedule {
+                padding: 10px 24px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html" class="active">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        </section>
+        <div class="container">
+            <div class="programs-list">
+                <div class="section-header">
+                    <span>OUR PROGRAMS</span>
+                    <h2>Premium Fitness Experiences</h2>
+                    <p class="section-subtitle">Complete, high-performance solutions engineered for your specific goals.
+                    </p>
+                </div>
+                <div class="program-item" id="program1">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program1.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Strength Foundation</h3>
+                        <span class="difficulty advanced">Advanced</span>
+                        <p class="program-description">Build raw power and muscle mass with compound lifts. This 8‑week
+                            program focuses on bench press, barbell squat and deadlift with linear progression.
+                            You'll learn proper form, breathing techniques, and how to safely increase weight each
+                            session. Perfect for newcomers wanting a strong base for any sport or daily life. Includes
+                            warm‑up routines and recovery tips.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program1'">See Schedule</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="program-item" id="program2">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program2.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program2.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">High-Intensity Interval Training</h3>
+                        <span class="difficulty intermediate">Intermediate</span>
+                        <p class="program-description">Maximum calorie burn in minimum time. 20‑30 minute sessions
+                            combining sprints, burpees, kettlebell swings, and plyometrics. This 6‑week plan boosts
+                            metabolism, improves cardiovascular endurance, and shreds fat. Each workout is timed with
+                            work/rest intervals. Modifications for all fitness levels included.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program2'">See Schedule</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="program-item" id="program3">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program3.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program3.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Yoga</h3>
+                        <span class="difficulty beginner">Beginner</span>
+                        <p class="program-description">Increase flexibility, reduce stress, and improve posture. This
+                            program includes vinyasa flows, deep stretching, breathwork, and guided relaxation. Over 6
+                            weeks, you'll develop better balance, core strength, and joint health. Ideal for recovery
+                            days or as a standalone practice.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program3'">See Schedule</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="program-item" id="program4">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program4.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program4.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Powerlifting</h3>
+                        <span class="difficulty advanced">Advanced</span>
+                        <p class="program-description">Designed for experienced lifters aiming to maximize 1RM in squat,
+                            bench, and deadlift. This 12‑week periodized program uses wave loading, deload weeks, and
+                            competition prep. Includes accessory work, mobility drills, and recovery protocols.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program4'">See Schedule</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="program-item" id="program5">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program5.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program5.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Cardio Endurance</h3>
+                        <span class="difficulty intermediate">Intermediate</span>
+                        <p class="program-description">Boost stamina and heart health with progressive running, cycling,
+                            and rowing sessions. Includes interval training, long slow distance, and heart rate zone
+                            workouts. 8‑week plan to improve VO2 max and endurance for any sport.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program5'">See Schedule</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="program-item" id="program6">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program6.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program6.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Bodyweight Blast</h3>
+                        <span class="difficulty beginner">Beginner</span>
+                        <p class="program-description">Effective home workouts using only your bodyweight. Push‑ups,
+                            squats, lunges, planks, and advanced variations. Build functional strength anywhere. 6‑week
+                            progression from basics to advanced moves like pistol squats and handstand push‑ups.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program6'">See Schedule</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="program-item" id="program7">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program7.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program7.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Athletic Speed & Agility</h3>
+                        <span class="difficulty intermediate">Intermediate</span>
+                        <p class="program-description">Designed for athletes wanting faster footwork, explosive starts,
+                            and better change of direction. Includes ladder drills, cone drills, plyometrics, and sprint
+                            mechanics. 8‑week program improves reaction time and sport‑specific performance.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program7'">See Schedule</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div class="program-item" id="program8">
+                    <div class="program-media">
+                        <div class="program-img">
+                            <img src="Images/program8.jpg">
+                        </div>
+                        <div class="program-video">
+                            <video autoplay muted loop>
+                                <source src="Images/program8.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-label"><i class="fas fa-video"></i> </i>&nbsp Demo video</div>
+                        </div>
+                    </div>
+                    <div class="program-content">
+                        <h3 class="program-title">Mindful Recovery & Stretch</h3>
+                        <span class="difficulty beginner">Beginner</span>
+                        <p class="program-description">Reduce soreness, prevent injury, and improve flexibility with
+                            guided stretching, foam rolling, and relaxation techniques. Perfect for rest days or
+                            post‑workout. Includes breathwork and myofascial release routines.</p>
+                        <button class="btn-sched" onclick="location.href='schedule.html#program8'">See Schedule</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and
+                        expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771
+                        T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

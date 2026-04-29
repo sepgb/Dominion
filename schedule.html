@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            background: #e53e3e;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: #c52222;
+            transform: translateY(-2px);
+        }
+
+        .program-schedule {
+            padding: 60px 0;
+            border-bottom: 1px solid #eee;
+            scroll-margin-top: 80px;
+        }
+
+        .program-schedule:last-child {
+            border-bottom: none;
+        }
+
+        .program-schedule h2 {
+            font-size: 32px;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        .program-schedule .program-desc {
+            color: #e53e3e;
+            margin-bottom: 30px;
+            font-weight: 500;
+        }
+
+        .schedule-table-wrapper {
+            overflow-x: auto;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.188);
+        }
+
+        .schedule-table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 700px;
+        }
+
+        .schedule-table th,
+        .schedule-table td {
+            padding: 16px 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+        }
+
+        .schedule-table th {
+            background: #111116;
+            color: white;
+            font-weight: 600;
+        }
+
+        .schedule-table tr:hover {
+            background: #fef5f5;
+        }
+
+        .time-slot {
+            font-weight: 700;
+            color: #e53e3e;
+        }
+
+        .back-to-top {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .btn-back {
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 12px 28px;
+            border-radius: 40px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-back:hover {
+            background: #c52222;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                display: none;
+            }
+
+            .schedule-hero {
+                padding: 80px 0;
+            }
+
+            .schedule-hero h1 {
+                font-size: 36px;
+            }
+
+            .program-schedule h2 {
+                font-size: 26px;
+            }
+
+            .schedule-table th,
+            .schedule-table td {
+                padding: 12px 10px;
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo" alt="Dominion Logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html" class="active">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+    <a href="programs.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+    <div class="section-header" style="margin: 50px 0 0;">
+        <span>COMPLETE TIMETABLE</span>
+        <h2>Full Weekly Schedule</h2>
+        <p class="section-subtitle">All classes across all programs</p>
+    </div>
+    <main>
+        <div class="container">
+            <div id="program1" class="program-schedule">
+                <h2>Strength Foundation</h2>
+                <div class="program-desc">Advanced - 8 weeks | Build raw power with compound lifts</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td class="time-slot">7:00 AM - 9:00 AM</td>
+                                <td>Coach Luffy</td>
+                                <td>Strength Zone A</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td class="time-slot">7:00 AM - 9:00 AM</td>
+                                <td>Coach Zoro</td>
+                                <td>Strength Zone A</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td class="time-slot">7:00 AM - 9:00 AM</td>
+                                <td>Coach Luffy</td>
+                                <td>Strength Zone A</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td class="time-slot">9:00 AM - 11:00 AM</td>
+                                <td>Coach Zoro</td>
+                                <td>Strength Zone A</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="program2" class="program-schedule">
+                <h2>High-Intensity Interval Training</h2>
+                <div class="program-desc">Intermediate - 6 weeks | Max calorie burn</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td class="time-slot">5:30 PM - 6:15 PM</td>
+                                <td>Coach Robin</td>
+                                <td>HIIT Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td class="time-slot">6:30 AM - 7:15 AM</td>
+                                <td>Coach Robin</td>
+                                <td>HIIT Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td class="time-slot">5:30 PM - 6:15 PM</td>
+                                <td>Coach Usopp</td>
+                                <td>HIIT Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td class="time-slot">10:00 AM - 10:45 AM</td>
+                                <td>Coach Usopp</td>
+                                <td>HIIT Studio</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="program3" class="program-schedule">
+                <h2>Yoga Flow & Mobility</h2>
+                <div class="program-desc">Beginner - 6 weeks | Flexibility, breathwork, relaxation</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td class="time-slot">9:00 AM - 10:15 AM</td>
+                                <td>Coach Nami</td>
+                                <td>Yoga Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td class="time-slot">6:00 PM - 7:15 PM</td>
+                                <td>Coach Nami</td>
+                                <td>Yoga Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td class="time-slot">9:00 AM - 10:15 AM</td>
+                                <td>Coach Nami</td>
+                                <td>Yoga Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td class="time-slot">8:00 AM - 9:15 AM</td>
+                                <td>Coach Nami</td>
+                                <td>Yoga Studio</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="program4" class="program-schedule">
+                <h2>Powerlifting</h2>
+                <div class="program-desc">Advanced - 12 weeks | Maximize 1RM squat, bench, deadlift</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td class="time-slot">4:00 PM - 6:00 PM</td>
+                                <td>Coach Zoro</td>
+                                <td>Power Rack Area</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td class="time-slot">4:00 PM - 6:00 PM</td>
+                                <td>Coach Zoro</td>
+                                <td>Power Rack Area</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td class="time-slot">11:00 AM - 1:00 PM</td>
+                                <td>Coach Zoro</td>
+                                <td>Power Rack Area</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="program5" class="program-schedule">
+                <h2>Cardio Endurance</h2>
+                <div class="program-desc">Intermediate - 8 weeks | Boost VO2 max, stamina</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td class="time-slot">6:00 AM - 7:00 AM</td>
+                                <td>Coach Usopp</td>
+                                <td>Cardio Deck</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td class="time-slot">6:00 AM - 7:00 AM</td>
+                                <td>Coach Luffy</td>
+                                <td>Cardio Deck</td>
+                            </tr>
+                            <tr>
+                                <td>Friday</td>
+                                <td class="time-slot">6:00 AM - 7:00 AM</td>
+                                <td>Coach Usopp</td>
+                                <td>Cardio Deck</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td class="time-slot">8:00 AM - 9:30 AM</td>
+                                <td>Coach Luffy</td>
+                                <td>Outdoor Track</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="program6" class="program-schedule">
+                <h2>Bodyweight Blast</h2>
+                <div class="program-desc">Beginner - 6 weeks | Functional strength anywhere</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td class="time-slot">12:00 PM - 12:45 PM</td>
+                                <td>Coach Sanji</td>
+                                <td>Functional Area</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td class="time-slot">12:00 PM - 12:45 PM</td>
+                                <td>Coach Sanji</td>
+                                <td>Functional Area</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td class="time-slot">10:00 AM - 10:45 AM</td>
+                                <td>Coach Sanji</td>
+                                <td>Functional Area</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="program7" class="program-schedule">
+                <h2>Athletic Speed & Agility</h2>
+                <div class="program-desc">Intermediate - 8 weeks | Explosive footwork, reaction time</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Monday</td>
+                                <td class="time-slot">4:00 PM - 5:30 PM</td>
+                                <td>Coach Usopp</td>
+                                <td>Turf Field</td>
+                            </tr>
+                            <tr>
+                                <td>Wednesday</td>
+                                <td class="time-slot">4:00 PM - 5:30 PM</td>
+                                <td>Coach Robin</td>
+                                <td>Turf Field</td>
+                            </tr>
+                            <tr>
+                                <td>Saturday</td>
+                                <td class="time-slot">9:00 AM - 10:30 AM</td>
+                                <td>Coach Robin</td>
+                                <td>Turf Field</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div id="program8" class="program-schedule">
+                <h2>Mindful Recovery & Stretch</h2>
+                <div class="program-desc">Beginner | Reduce soreness, improve flexibility</div>
+                <div class="schedule-table-wrapper">
+                    <table class="schedule-table">
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th>Time</th>
+                                <th>Instructor</th>
+                                <th>Location</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Tuesday</td>
+                                <td class="time-slot">7:00 PM - 8:00 PM</td>
+                                <td>Coach Nami</td>
+                                <td>Yoga Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Thursday</td>
+                                <td class="time-slot">7:00 PM - 8:00 PM</td>
+                                <td>Coach Sanji</td>
+                                <td>Yoga Studio</td>
+                            </tr>
+                            <tr>
+                                <td>Sunday</td>
+                                <td class="time-slot">11:00 AM - 12:00 PM</td>
+                                <td>Coach Nami</td>
+                                <td>Yoga Studio</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo" alt="Dominion Logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

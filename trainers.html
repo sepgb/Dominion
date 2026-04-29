@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .section-header {
+            text-align: center;
+            margin: 40px 0 35px;
+        }
+
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 70px;
+        }
+
+        .trainer-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            border: 1px solid #f0eef5;
+            margin-bottom: 30px;
+        }
+
+        .trainer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 35px rgba(229, 62, 62, 0.15);
+            border-color: #e53e3e;
+        }
+
+        .trainer-img {
+            height: 320px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .trainer-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .trainer-card:hover .trainer-img img {
+            transform: scale(1.05);
+        }
+
+        .trainer-social {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.862), transparent);
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            transition: bottom 0.3s ease;
+        }
+
+        .trainer-card:hover .trainer-social {
+            bottom: 0;
+        }
+
+        .trainer-social a {
+            color: white;
+            font-size: 20px;
+            transition: 0.3s;
+        }
+
+        .trainer-social a:hover {
+            color: #e53e3e;
+            transform: translateY(-3px);
+        }
+
+        .trainer-info {
+            padding: 25px 20px 30px;
+        }
+
+        .trainer-info h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #111;
+        }
+
+        .trainer-specialty {
+            color: #e53e3e;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+
+        .trainer-bio {
+            color: #6a6a7a;
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .trainer-stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+        }
+
+        .trainer-stats span {
+            font-size: 13px;
+            color: #888;
+        }
+
+        .trainer-stats i {
+            color: #e53e3e;
+            margin-right: 5px;
+        }
+
+        .cta-banner {
+            margin-top: 0px;
+        }
+
+        @media (max-width: 768px) {
+            .section-header {
+                margin: 40px 0 30px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+                margin-top: -10px;
+                line-height: 1;
+            }
+
+            .section-subtitle {
+                margin-top: 0px;
+                font-size: 16px;
+                line-height: 1.1;
+            }
+
+            .trainer-img {
+                height: 280px;
+            }
+
+            .trainer-social {
+                bottom: 0;
+                background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .trainers-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo" alt="Dominion Logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html" class="active">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="trainers-section">
+            <div class="container">
+                <div class="section-header">
+                    <span>EXPERT COACHING</span>
+                    <h2>Your Fitness Journey Starts Here</h2>
+                    <p class="section-subtitle">Learn from the best in the industry</p>
+                </div>
+                <div class="trainers-grid">
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <img src="Images/coach luffy.png">
+                            <div class="trainer-social">
+                                <a><i class="fab fa-instagram"></i></a>
+                                <a><i class="fab fa-twitter"></i></a>
+                                <a><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Coach Luffy</h3>
+                            <span class="trainer-specialty">Strength & Conditioning</span>
+                            <p class="trainer-bio">Former competitive powerlifter with 8+ years of coaching experience.
+                                Specializes in functional strength and injury prevention.</p>
+                            <div class="trainer-stats">
+                                <span><i class="fas fa-users"></i> 500+ classes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <img src="Images/coach nami.png">
+                            <div class="trainer-social">
+                                <a><i class="fab fa-instagram"></i></a>
+                                <a><i class="fab fa-twitter"></i></a>
+                                <a><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Coach Nami</h3>
+                            <span class="trainer-specialty">Yoga & Mobility</span>
+                            <p class="trainer-bio">Certified Yoga Instructor and Mindfulness Coach. Helps clients
+                                improve flexibility, reduce stress, and find balance.</p>
+                            <div class="trainer-stats">
+                                <span><i class="fas fa-users"></i> 300+ classes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <img src="Images/coach robin.png">
+                            <div class="trainer-social">
+                                <a><i class="fab fa-instagram"></i></a>
+                                <a><i class="fab fa-twitter"></i></a>
+                                <a><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Coach Robin</h3>
+                            <span class="trainer-specialty">HIIT & Athletic Performance</span>
+                            <p class="trainer-bio">Former track athlete turned HIIT specialist. Known for high-energy
+                                sessions that maximize calorie burn and build endurance.</p>
+                            <div class="trainer-stats">
+                                <span><i class="fas fa-users"></i> 1000+ classes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <img src="Images/coach zoro.png">
+                            <div class="trainer-social">
+                                <a><i class="fab fa-instagram"></i></a>
+                                <a><i class="fab fa-twitter"></i></a>
+                                <a><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Coach Zoro</h3>
+                            <span class="trainer-specialty">Powerlifting & Bodybuilding</span>
+                            <p class="trainer-bio">Competitive bodybuilder with 10+ years of experience. Helps clients
+                                build muscle, increase strength, and sculpt their physique.</p>
+                            <div class="trainer-stats">
+                                <span><i class="fas fa-users"></i> 400+ classes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <img src="Images/coach sanji.png">
+                            <div class="trainer-social">
+                                <a><i class="fab fa-instagram"></i></a>
+                                <a><i class="fab fa-twitter"></i></a>
+                                <a><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Coach Sanji</h3>
+                            <span class="trainer-specialty">Nutrition & Wellness</span>
+                            <p class="trainer-bio">Registered Dietitian and Nutrition Coach. Creates personalized meal
+                                plans and helps clients develop sustainable healthy habits.</p>
+                            <div class="trainer-stats">
+                                <span><i class="fas fa-users"></i> 800+ classes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trainer-card">
+                        <div class="trainer-img">
+                            <img src="Images/coach usopp.png">
+                            <div class="trainer-social">
+                                <a><i class="fab fa-instagram"></i></a>
+                                <a><i class="fab fa-twitter"></i></a>
+                                <a><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                        <div class="trainer-info">
+                            <h3>Coach Usopp</h3>
+                            <span class="trainer-specialty">Cardio & Endurance</span>
+                            <p class="trainer-bio">Marathon runner and cycling enthusiast. Specializes in building
+                                cardiovascular endurance and stamina for all levels.</p>
+                            <div class="trainer-stats">
+                                <span><i class="fas fa-users"></i> 700+ classes</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-banner" id="fuel" id="cta" style="margin-top: 100px;">
+            <div class="container" style="padding: 40px 0;">
+                <div class="cta-content">
+                    <h2>Fuel Your Body <span style="color: #e53e3e;">The Right Way</span></h2>
+                    <p>Discover expert diet tips, exercise benefits, and wellness guides to maximize your results.</p>
+                    <button class="btn-primary-large" onclick="location.href='health.html'"><i
+                            class="fa-solid fa-suitcase-medical"></i> &nbspExplore Health Tips
+                        →</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer style="margin-top: 0px;">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo" alt="Dominion Logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

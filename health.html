@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            background: #e53e3e;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: #c52222;
+            transform: translateY(-2px);
+        }
+
+        .articles-list {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 0;
+        }
+
+        .article-item {
+            display: flex;
+            gap: 30px;
+            margin-bottom: 50px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #e0e0e0;
+            align-items: flex-start;
+        }
+
+        .article-item:last-child {
+            border-bottom: none;
+        }
+
+        .article-image {
+            flex: 0 0 280px;
+        }
+
+        .article-image img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 2px solid #c3c3c3;
+        }
+
+        .article-text {
+            flex: 1;
+        }
+
+        .article-category {
+            color: #e53e3e;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            display: inline-block;
+        }
+
+        .article-text h3 {
+            font-size: 24px;
+            margin-bottom: 12px;
+            color: #111;
+        }
+
+        .article-text p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .read-more {
+            color: #e53e3e;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.2s;
+        }
+
+        .read-more:hover {
+            gap: 10px;
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+
+            .back-button {
+                display: none;
+            }
+
+            .article-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .article-image {
+                flex: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo" alt="Dominion Logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html" class="active">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+    <a href="trainers.html#fuel" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+
+    <main>
+        <div class="section-header" style="margin-top: 50px;">
+            <span>LATEST ARTICLES</span>
+            <h2>Wellness Insights</h2>
+            <p class="section-subtitle">Evidence‑based nutrition and exercise guidance</p>
+        </div>
+
+        <div class="container">
+            <div class="articles-list">
+                <div class="article-item">
+                    <div class="article-image">
+                        <img src="Images/article1.jpg" alt="Meal prep">
+                    </div>
+                    <div class="article-text">
+                        <span class="article-category"><i class="fas fa-apple-alt"></i> Diet Tip</span>
+                        <h3>8 tips for healthy eating</h3>
+                        <p>The key to a healthy diet is to eat the right amount of calories for how active you are so
+                            you balance the energy you consume with the energy you use.</p>
+                        <a href="https://share.google/E8O5JmE3v7ABugMyS" class="read-more" target="_blank">Read More <i
+                                class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-image">
+                        <img src="Images/article2.jpg" alt="Strength training">
+                    </div>
+                    <div class="article-text">
+                        <span class="article-category"><i class="fas fa-dumbbell"></i> Exercise Benefit</span>
+                        <h3>Health Benefits of Running for Body and Mind</h3>
+                        <p>Explore the physical, mental, and lifestyle benefits of running and see how consistent
+                            movement can change your life and support young athletes.</p>
+                        <a href="https://oaxsport.org/health-benefits-running/?gad_source=1&gad_campaignid=23374176207&gbraid=0AAAAAovNrrxv8SQ1FhkT1gmA7sIPWXCfN&gclid=CjwKCAjwhqfPBhBWEiwAZo196mIw2MNBK9XJT2rkg4JJYrL7ttPRdMwJoHiFFeus4uOETgnGxikw0BoC-WgQAvD_BwE"
+                            class="read-more" target="_blank">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-image">
+                        <img src="Images/article3.jpg" alt="Hydration">
+                    </div>
+                    <div class="article-text">
+                        <span class="article-category"><i class="fas fa-tint"></i> Health and Fitness</span>
+                        <h3>Nutrition and Hydration</h3>
+                        <p>Proper nutrition and hydration are essential for runners, impacting everything from energy
+                            levels to recovery. Understanding and implementing a balanced nutritional strategy can
+                            significantly enhance your running performance and overall health.</p>
+                        <a href="https://oaxsport.org/running-nutrition-hydration/?gad_source=1&gad_campaignid=23374176207&gbraid=0AAAAAovNrrxv8SQ1FhkT1gmA7sIPWXCfN&gclid=CjwKCAjwhqfPBhBWEiwAZo196pnXqdFb5Shv5uWlnMYXb7hRLz3o42DTe-LdBEaJHktHBy6ociF9XhoCDzMQAvD_BwE"
+                            target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-image">
+                        <img src="Images/article4.jpg" alt="Cardio benefits">
+                    </div>
+                    <div class="article-text">
+                        <span class="article-category"><i class="fas fa-heartbeat"></i> Cardio</span>
+                        <h3>3 Kinds of Exercise That Boost Heart Health</h3>
+                        <p>Being physically active is a major step toward good heart health. It’s one of your most
+                            effective tools for strengthening the heart muscle, keeping your weight under control and
+                            warding off the artery damage from high cholesterol, high blood sugar and high blood
+                            pressure that can lead to heart attack or stroke.</p>
+                        <a href="https://www.hopkinsmedicine.org/health/wellness-and-prevention/3-kinds-of-exercise-that-boost-heart-health"
+                            target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-image">
+                        <img src="Images/article5.jpg" alt="Protein sources">
+                    </div>
+                    <div class="article-text">
+                        <span class="article-category"><i class="fas fa-egg"></i> Diet Tip</span>
+                        <h3>14 Best Muscle-Building Foods</h3>
+                        <p>Your diet supplies nutrients that support muscle growth and recovery after exercise.
+                            High-protein foods –– such as chicken, fish, and tofu –– provide amino acids that help your
+                            body repair muscle damage and build muscle.</p>
+                        <a href="https://www.goodrx.com/well-being/diet-nutrition/muscle-building-foods?srsltid=AfmBOoqpfAkz2RvqPO3SFnrzAkgAKs1HaaXh-0E7fxBijDomcAOReK8N"
+                            target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-image">
+                        <img src="Images/article6.jpg" alt="Flexibility">
+                    </div>
+                    <div class="article-text">
+                        <span class="article-category"><i class="fas fa-dumbbell"></i> Exercise Benefit</span>
+                        <h3>Stretching: Focus on flexibility</h3>
+                        <p>You know exercise is important, but what about stretching? Does stretching take a back seat
+                            to your exercise routine? Not so fast.
+                            Stretching may help you improve your range of motion and decrease your risk of injury, among
+                            other benefits.</p>
+                        <a href="https://www.mayoclinic.org/healthy-lifestyle/fitness/in-depth/stretching/art-20047931"
+                            target="_blank" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-image">
+                        <img src="Images/article7.jpg" alt="Balanced lifestyle">
+                    </div>
+                    <div class="article-text">
+                        <span class="article-category"><i class="fas fa-balance-scale"></i> Diet & Exercise</span>
+                        <h3>Is Diet or Exercise More Important for Your Health?</h3>
+                        <p>With endless health interventions out there, such as the 80/20 rule and exercise-free diets,
+                            it can be hard to gauge whether you should prioritize diet or exercise — or if the answer
+                            lies somewhere in between.</p>
+                        <a href="https://www.healthline.com/nutrition/diet-vs-exercise" target="_blank"
+                            class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo" alt="Dominion Logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

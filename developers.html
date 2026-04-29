@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #e2e2e2;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            background: #e53e3e;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: #c52222;
+            transform: translateY(-2px);
+        }
+
+        .team-section {
+            padding: 20px 0 80px;
+            background: #f4f4f4;
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: 15px;
+            border: 1px solid rgb(229, 229, 229);
+            overflow: hidden;
+            text-align: center;
+            padding: 30px;
+            transition: 0.3s;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+            border: 1px solid #e64a4a;
+        }
+
+        .team-avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            overflow: hidden;
+            background: #111116;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .team-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-avatar .fallback-icon {
+            font-size: 60px;
+            color: #e53e3e;
+        }
+
+        .team-card h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .team-role {
+            color: #e53e3e;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .team-bio {
+            color: #6a6a7a;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .tech-stack {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .tech-icons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .tech-item {
+            text-align: center;
+        }
+
+        .tech-item i {
+            font-size: 60px;
+            color: #e53e3e;
+            margin-bottom: 15px;
+        }
+
+        .tech-item span {
+            display: block;
+            font-weight: 600;
+        }
+
+        footer {
+            margin-top: 0;
+        }
+
+        @media (max-width: 768px) {
+            .developers-hero h1 {
+                font-size: 36px;
+            }
+
+            .team-avatar {
+                width: 120px;
+                height: 120px;
+            }
+
+            .back-button {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo" alt="Dominion Logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+    <a href="contact.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+
+    <main>
+        <section class="team-section">
+            <div class="container">
+                <div class="section-header">
+                    <span>OUR TEAM</span>
+                    <h2>Meet the Developers</h2>
+                    <p class="section-subtitle">Dedicated to delivering excellence</p>
+                </div>
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="Images/joseph.png">
+                        </div>
+                        <h3>Joseph Gobres</h3>
+                        <div class="team-role">Lead Developer</div>
+                        <p class="team-bio">Aspiring full-stack developer. Focused on building intuitive user interfaces
+                            and scalable back-end solutions.</p>
+                        <div class="social">
+                            <i class="fab fa-github"></i>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="Images/mharx.png">
+                        </div>
+                        <h3>Mharx De Luna</h3>
+                        <div class="team-role">UI/UX Designer</div>
+                        <p class="team-bio">Aspiring creative designer focused on intuitive interfaces and modern
+                            aesthetics.
+                            Ensures every pixel is perfectly placed.</p>
+                        <div class="social">
+                            <i class="fab fa-github"></i>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </div>
+
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <img src="Images/delmar.png">
+                        </div>
+                        <h3>Delmar Buhawe</h3>
+                        <div class="team-role">Backend Engineer</div>
+                        <p class="team-bio">Learning database architecture and API development. Dedicated to mastering
+                            smooth data flow and security.</p>
+                        <div class="social">
+                            <i class="fab fa-github"></i>
+                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="tech-stack">
+            <div class="container">
+                <div class="section-header">
+                    <span>TECHNOLOGIES</span>
+                    <h2>Powered By</h2>
+                    <p class="section-subtitle">Modern tools for modern web</p>
+                </div>
+                <div class="tech-icons">
+                    <div class="tech-item">
+                        <i class="fab fa-html5"></i>
+                        <span>HTML</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-mobile-alt"></i>
+                        <span>Responsive Design</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-css3-alt"></i>
+                        <span>CSS</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo" alt="Dominion Logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            background: #e53e3e;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: #c52222;
+            transform: translateY(-2px);
+        }
+
+        .shop-section {
+            padding: 30px 5%;
+            text-align: center;
+        }
+
+        .section-desc {
+            color: #777;
+            margin-bottom: 50px;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            background: #fff;
+            border-radius: 18px;
+            overflow: hidden;
+            transition: 0.3s ease;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+        }
+
+        .product-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image img {
+            width: 100%;
+            height: 260px;
+            object-fit: cover;
+            transition: 0.4s;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: 0.3s;
+        }
+
+        .product-card:hover .overlay {
+            opacity: 1;
+        }
+
+        .overlay button {
+            background: #ff4d30;
+            border: none;
+            padding: 12px 26px;
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .overlay button:hover {
+            background: #e63e22;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-size: 18px;
+            line-height: 1.1;
+            margin-bottom: 15px;
+        }
+
+        .product-info p {
+            font-size: 14px;
+            color: #777;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            margin-top: auto;
+            color: #ff4d30;
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        @media (max-width: 992px) {
+            .shop-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                gap: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .section-header {
+                margin: 40px 0 30px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+                margin-top: -10px;
+            }
+
+            .section-subtitle {
+                margin-top: 0px;
+                font-size: 16px;
+                line-height: 1.1;
+            }
+
+            .back-button {
+                display: none;
+            }
+
+            .section-subtitle {
+                margin-top: 3px;
+                font-size: 18px;
+                line-height: 1.1;
+            }
+
+            .shop-section {
+                padding: 20px 20px;
+            }
+
+            .shop-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+
+            .product-card {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .product-image img {
+                height: 220px;
+            }
+
+            .product-info {
+                padding: 16px;
+            }
+
+            .product-info h3 {
+                font-size: 16px;
+            }
+
+            .product-info p {
+                font-size: 13px;
+            }
+
+            .price {
+                font-size: 16px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .product-image img {
+                height: 190px;
+            }
+
+            .product-info {
+                padding: 14px;
+            }
+
+            .product-info h3 {
+                font-size: 15px;
+            }
+
+            .overlay button {
+                padding: 8px 18px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+    <a href="index.html" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+    <main>
+        <section class="shop-section">
+            <div class="section-header">
+                <span>THE DOMINION ARSENAL</span>
+                <h2>Our Official Merchandise</h2>
+                <p class="section-subtitle">
+                    limited drop of our finest creations. Once sold out, they won’t return.
+                </p>
+            </div>
+
+            <div class="shop-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/BasicTee.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Core Performance Tee</h3>
+                        <p>A versatile everyday and training staple, crafted from ultra-lightweight, breathable fabric
+                            that moves with you.</p>
+                        <span class="price">₱299</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/Gloves.jpeg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Grip Pro Training Gloves</h3>
+                        <p>Engineered for serious lifters and athletes, these gloves feature reinforced padding to
+                            protect your hands and enhance grip stability during heavy lifts. </p>
+                        <span class="price">₱499</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/Hoodie.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Alpha Wolf Hoodie</h3>
+                        <p>Premium mid-weight hoodie designed for warmth, comfort, and style. Made from soft, durable
+                            fabric with a tailored fit that looks great both in and out of the gym.</p>
+                        <span class="price">₱699</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/BlackTumbler.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Hydra Insulated Flask</h3>
+                        <p>Durable, high-quality stainless steel bottle built to keep drinks cold for up to 24 hours or
+                            hot for up to 12 hours.</p>
+                        <span class="price">₱260</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/MuscleTEE.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Beast Muscle Tank</h3>
+                        <p>Engineered for maximum mobility and breathability, this sleeveless muscle tee is made from
+                            strong, long-lasting fabric that holds its shape even after heavy use.</p>
+                        <span class="price">₱250</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/MeshShort.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Airflow Mesh Shorts</h3>
+                        <p>Ultra-lightweight mesh construction designed for superior airflow and ventilation, keeping
+                            you cool even during high-intensity workouts.</p>
+                        <span class="price">₱250</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/JoggerPants.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Flex Fit Joggers</h3>
+                        <p>Premium joggers made from soft, stretchable fabric that offers maximum comfort and
+                            unrestricted movement.</p>
+                        <span class="price">₱399</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/Drifit.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Dri-Tech Active Tee</h3>
+                        <p>High-performance tee engineered with advanced moisture-wicking technology that pulls sweat
+                            away from the skin.</p>
+                        <span class="price">₱299</span>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/Windbreaker.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Shield Windbreaker</h3>
+                        <p>Lightweight yet durable outerwear built to shield you from wind and light rain. Made with a
+                            water-resistant shell and sleek, athletic cut, complete with zippered pockets and red accent
+                            detailing.</p>
+                        <span class="price">₱899</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/SportBra.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Core Support Sports Bra</h3>
+                        <p>Designed for high-performance training and daily comfort, this sports bra features breathable
+                            mesh panels, a supportive racerback fit, and moisture-wicking fabric to keep you cool and
+                            dry.</p>
+                        <span class="price">₱199</span>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/WomenShort.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Flex Training Shorts</h3>
+                        <p>Lightweight, stretch-fit athletic shorts built for unrestricted movement. Equipped with an
+                            adjustable drawstring waist, ventilated side panels, and soft, quick-drying fabric.</p>
+                        <span class="price">₱129</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/DuffleBag.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Warhog Gym Duffle</h3>
+                        <p>Rugged, spacious, and built for the dedicated athlete. This heavy-duty duffle is made from
+                            water-resistant material with reinforced handles, multiple storage compartments, and a
+                            detachable shoulder strap.</p>
+                        <span class="price">₱1599</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/LavaShoes.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Lava Performance Running Shoes</h3>
+                        <p>Engineered for speed, stability, and style. These running shoes feature air-cushioned soles
+                            for shock absorption, durable traction outsoles, and breathable mesh uppers.</p>
+                        <span class="price">₱2999</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/AshShoes.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Ash Elite Training Shoes</h3>
+                        <p>Versatile, lightweight shoes crafted for training, running, and everyday wear. Features
+                            responsive cushioning, a slip-resistant outsole, and breathable construction for all-day
+                            comfort.</p>
+                        <span class="price">₱2999</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/AshTumbler.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Ash Insulated Tumbler</h3>
+                        <p>Premium double-walled stainless steel tumbler that keeps drinks cold for 24 hours or hot for
+                            8 hours. Durable, sweat-proof, and designed with a non-slip base and secure lid.</p>
+                        <span class="price">₱499</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/PinkTumbler.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Rose Gold Insulated Tumbler</h3>
+                        <p>A premium everyday tumbler crafted to keep your drinks at the perfect temperature. </p>
+                        <span class="price">₱260</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/Protein.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Wolfpack Premium Protein Blend</h3>
+                        <p>High-quality protein powder formulated to support muscle growth, recovery, and strength.
+                        </p>
+                        <span class="price">₱370</span>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/Creatine.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Shark Pack Creatine Boost</h3>
+                        <p>Advanced creatine formula designed to enhance strength, endurance, and workout performance.
+                        </p>
+                        <span class="price">₱399</span>
+                    </div>
+                </div>
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/PreWorkoutDrink.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Tigerpack Energy Pre-Workout</h3>
+                        <p>Powerful non-dairy pre-workout formula crafted to deliver sustained energy, improved focus,
+                            and maximum performance.</p>
+                        <span class="price">₱319</span>
+                    </div>
+                </div>
+
+
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/PreWorkoutGummies.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion Bear Pack Pre-Workout Gummies</h3>
+                        <p>Delicious, convenient pre-workout gummies that deliver energy and focus without the hassle of
+                            mixing powders. </p>
+                        <span class="price">₱199</span>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="Images/PortableBlender.jpg" alt="">
+                        <div class="overlay">
+                            <button>Buy Now</button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Dominion BlendPro Portable Blender</h3>
+                        <p>Your ultimate on-the-go nutrition companion. Compact, rechargeable, and powerful enough to
+                            blend smoothies, shakes, and supplements in seconds.</p>
+                        <span class="price">₱260</span>
+                    </div>
+                </div>
+            </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p style="max-width: 100%;"><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm
+                    </p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+</body>
+
+</html>

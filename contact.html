@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        .section-header {
+            text-align: center;
+            margin: 40px 0 60px;
+        }
+
+        .contact-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+            background: white;
+            padding: 40px;
+            border-radius: 24px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: #111;
+        }
+
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-icon {
+            width: 60px;
+            height: 60px;
+            background: #fef5f5;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #e53e3e;
+            font-size: 24px;
+        }
+
+        .info-text h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+            color: #111;
+        }
+
+        .info-text p {
+            color: #6a6a7a;
+            line-height: 1.5;
+        }
+
+        .map-container {
+            flex: 1;
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            min-height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            min-height: 450px;
+            border: none;
+        }
+
+        .developer-cta {
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .btn-developer {
+            display: inline-block;
+            background: #e53e3e;
+            color: white;
+            padding: 14px 32px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 16px;
+            transition: 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-developer:hover {
+            background: #c52222;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .section-header {
+                margin: 40px 0 30px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+                margin-top: -10px;
+            }
+
+            .section-subtitle {
+                margin-top: 0px;
+                font-size: 16px;
+                line-height: 1.1;
+            }
+
+            .contact-grid {
+                flex-direction: column;
+            }
+
+            .contact-info h3 {
+                font-size: 24px;
+            }
+
+            .info-item {
+                gap: 12px;
+            }
+
+            .info-icon {
+                width: 60px;
+                height: 50px;
+                font-size: 20px;
+                color: none;
+                background: none;
+            }
+
+            .map-container iframe {
+                min-height: 300px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo" alt="Dominion Logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html" class="active">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="contact-section">
+            <div class="section-header">
+                <span>GET IN TOUCH</span>
+                <h2>Contact Us</h2>
+                <p class="section-subtitle">Seamless, direct access to our expert team for inquiries, partnerships, and
+                    high-level support.
+                </p>
+            </div>
+            <div class="container">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Visit Dominion</h3>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Location</h4>
+                                <p>3F, Dalope Commercial Bldg, 771 T. Claudio, Morong, 1960 Rizal</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Phone Number</h4>
+                                <p>+123 (235)-375</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Email Address</h4>
+                                <p>dominionfitness01@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="info-text">
+                                <h4>Opening Hours</h4>
+                                <p>Monday - Saturday: 6:00am - 8:00pm<br>Sunday: 7:00am - 5:00pm</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="map-container">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d17296.516922746283!2d121.23894361515833!3d14.518679237574668!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sph!4v1776908506698!5m2!1sen!2sph"
+                            width="600" height="450" style="border:0;"></iframe>
+                    </div>
+                </div>
+
+                <div class="developer-cta">
+                    <a href="developers.html" class="btn-developer">
+                        <i class="fas fa-code"></i> Meet the Developers →
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo" alt="Dominion Logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .pricing-section {
+            padding: 0 0 80px;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .pricing-card {
+            background: white;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            text-align: center;
+            position: relative;
+        }
+
+        .pricing-card.featured {
+            transform: scale(1.02);
+            border: 2px solid #e53e3e;
+            box-shadow: 0 20px 40px rgba(229, 62, 62, 0.15);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: #e53e3e;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .pricing-header {
+            background: #111116;
+            color: white;
+            padding: 30px;
+        }
+
+        .pricing-header h3 {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .price {
+            font-size: 48px;
+            font-weight: 800;
+            color: #e53e3e;
+        }
+
+        .price span {
+            font-size: 18px;
+            font-weight: 400;
+            color: #aaa;
+        }
+
+        .pricing-body {
+            padding: 30px;
+        }
+
+        .pricing-body ul {
+            list-style: none;
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .pricing-body li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+            color: #6a6a7a;
+        }
+
+        .pricing-body li i {
+            color: #e53e3e;
+            margin-right: 10px;
+        }
+
+        .btn-membership {
+            background: #e53e3e;
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn-membership:hover {
+            background: #c52222;
+            transform: translateY(-2px);
+        }
+
+        .btn-membership-outline {
+            background: transparent;
+            border: 2px solid #e53e3e;
+            color: #e53e3e;
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+
+        .btn-membership-outline:hover {
+            background: #e53e3e;
+            color: white;
+        }
+
+        .perks-section {
+            padding: 100px 0;
+        }
+
+        .perks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .perk-item {
+            text-align: center;
+            padding: 30px;
+        }
+
+        .perk-item i {
+            font-size: 48px;
+            color: #e53e3e;
+            margin-bottom: 20px;
+        }
+
+        .perk-item h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .perk-item p {
+            color: #6a6a7a;
+        }
+
+        footer {
+            margin-top: 0px;
+        }
+
+        .testimonials-section {
+            margin-top: 130px;
+            padding: 120px 0;
+            background: #111116;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .testimonial-item {
+            border-left: 4px solid #e53e3e;
+            padding: 0 0 0 24px;
+            transition: 0.2s;
+        }
+
+        .testimonial-quote {
+            font-size: 32px;
+            color: #e53e3e;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .testimonial-text {
+            font-size: 18px;
+            line-height: 1.5;
+            color: #f4f4f4;
+            margin-bottom: 20px;
+            font-style: normal;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            font-size: 18px;
+            color: #ffffff;
+            margin-bottom: 4px;
+        }
+
+        .testimonial-meta {
+            font-size: 15px;
+            color: #e16f6f;
+            letter-spacing: 0.3px;
+        }
+
+        @media (max-width: 768px) {
+            .testimonials-grid {
+                gap: 30px;
+            }
+
+            .testimonial-item {
+                padding-left: 18px;
+            }
+
+            .testimonial-quote {
+                font-size: 28px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .membership-hero {
+                padding: 80px 0;
+            }
+
+            .membership-hero h1 {
+                font-size: 36px;
+            }
+
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+
+            .price {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo" alt="Dominion Logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="perks-section">
+            <div class="container">
+                <div class="section-header">
+                    <span>WHY JOIN US</span>
+                    <h2>Membership Perks</h2>
+                    <p class="section-subtitle">More than just a gym membership</p>
+                </div>
+                <div class="perks-grid">
+                    <div class="perk-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <h3>Free Trial Week</h3>
+                        <p>Try all our facilities and classes for 7 days completely free</p>
+                    </div>
+                    <div class="perk-item">
+                        <i class="fas fa-user-friends"></i>
+                        <h3>Community Events</h3>
+                        <p>Access to member-only challenges, workshops, and social events</p>
+                    </div>
+                    <div class="perk-item">
+                        <i class="fas fa-percent"></i>
+                        <h3>Member Discounts</h3>
+                        <p>20% off on all merchandise and nutrition products</p>
+                    </div>
+                </div>
+            </div>
+            <section class="testimonials-section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2 style="color: white;">Real People, <b style="color: #e53e3e;">Real Results</b></h2>
+                    </div>
+                    <div class="testimonials-grid">
+                        <div class="testimonial-item">
+                            <div class="testimonial-quote">“</div>
+                            <p class="testimonial-text">
+                                I walked into Dominion feeling lost and unmotivated. Six months later, I’ve lost 28 lbs,
+                                gained confidence, and actually look forward to training. The community here pushed me
+                                beyond
+                                what I thought was possible.
+                            </p>
+                            <div class="testimonial-author">— Ram B.</div>
+                            <div class="testimonial-meta">Lost 28 lbs | 4 months</div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-quote">“</div>
+                            <p class="testimonial-text">
+                                After two knee surgeries, I thought my athletic days were really now over. The Dominion
+                                trainers
+                                rebuilt
+                                me from the ground up. Now I’m stronger than before, pain‑free, and even competing in
+                                local
+                                fitness meets.
+                            </p>
+                            <div class="testimonial-author">— Ronald D.</div>
+                            <div class="testimonial-meta">Returned to competition | 8 months</div>
+                        </div>
+                        <div class="testimonial-item">
+                            <div class="testimonial-quote">“</div>
+                            <p class="testimonial-text">
+                                Being a busy parent, I never had time for myself. Dominion’s flexible hours and
+                                family‑friendly
+                                vibe changed everything. I’ve dropped 3 dress sizes and my kids love the weekend classes
+                                too. I feel like more of myself again.
+                            </p>
+                            <div class="testimonial-author">— Christine T.</div>
+                            <div class="testimonial-meta">3 dress sizes down | 6 months</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </section>
+
+        <section class="pricing-section">
+            <div class="container">
+                <div class="section-header">
+                    <span>MEMBERSHIP PLANS</span>
+                    <h2>Invest in Your Health</h2>
+                    <p class="section-subtitle">No hidden fees, cancel anytime</p>
+                </div>
+                <div class="pricing-grid">
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Basic</h3>
+                            <div class="price">₱299 <span>/month</span></div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul>
+                                <li> Full gym access (peak hours)</li>
+                                <li>Locker room & shower access</li>
+                                <li>2 group classes per week</li>
+                                <li>Personal training sessions</li>
+                                <li>Nutrition coaching</li>
+                            </ul>
+                            <button class="btn-membership-outline">Get
+                                Started</button>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card featured">
+                        <div class="pricing-header">
+                            <h3>Premium</h3>
+                            <div class="price">₱499 <span>/month</span></div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul>
+                                <li>24/7 gym access</li>
+                                <li>Unlimited group classes</li>
+                                <li>2 personal training sessions/month</li>
+                                <li>Nutrition consultation</li>
+                                <li>Access to all premium facilities</li>
+                            </ul>
+                            <button class="btn-membership">Get Started</button>
+                        </div>
+                    </div>
+
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <h3>Family</h3>
+                            <div class="price">₱899 <span>/month</span></div>
+                        </div>
+                        <div class="pricing-body">
+                            <ul>
+                                <li>Covers 2 adults + 2 kids</li>
+                                <li>24/7 gym access for adults</li>
+                                <li>Kids' fitness classes included</li>
+                                <li>Family nutrition plan</li>
+                                <li>4 personal training sessions/month</li>
+                            </ul>
+                            <button class="btn-membership-outline">Get
+                                Started</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo" alt="Dominion Logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>

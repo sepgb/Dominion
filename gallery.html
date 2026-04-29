@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dominion</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .section-header {
+            text-align: center;
+            margin: 40px 0 35px;
+        }
+
+        .section-header span {
+            color: #e53e3e;
+            font-weight: 800;
+            letter-spacing: 1px;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        .section-header h2 {
+            font-size: 47px;
+            font-weight: 800;
+            margin-top: -17px;
+        }
+
+        .section-subtitle {
+            color: #6a6a7a;
+            margin-top: -10px;
+            font-size: 19px;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 100px;
+            left: 20px;
+            z-index: 100;
+            background: #e53e3e;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .back-button:hover {
+            background: #c52222;
+            transform: translateY(-2px);
+        }
+
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .gallery-masonry .gallery-item {
+            width: 100%;
+            margin: 0;
+            cursor: pointer;
+            border-radius: 20px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 2px solid transparent;
+        }
+
+        .gallery-masonry .gallery-item:hover {
+            transform: translateY(-5px);
+            border-color: #e53e3e;
+        }
+
+        .gallery-masonry .gallery-item img {
+            height: 280px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .container {
+            max-width: 1280px;
+            padding: 0 32px;
+        }
+
+        @media (max-width: 768px) {
+            .back-button {
+                display: none;
+            }
+
+            .section-header {
+                margin: 40px 0 30px;
+            }
+
+            .section-header h2 {
+                font-size: 30px;
+                margin-top: -10px;
+            }
+
+            .section-subtitle {
+                margin-top: 0px;
+                font-size: 16px;
+                line-height: 1.1;
+            }
+
+            .gallery-hero h1 {
+                font-size: 36px;
+            }
+
+            .gallery-masonry {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 20px;
+            }
+
+            .gallery-masonry .gallery-item img {
+                height: 220px;
+            }
+
+            .back-button {
+                top: 10px;
+                left: 10px;
+                padding: 6px 16px;
+                font-size: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">
+                    <img src="Images/logo.png" class="nav-logo" alt="Dominion Logo">
+                    <h1>Dominion</h1>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="programs.html">Programs</a></li>
+                    <li><a href="trainers.html">Trainers</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="btn-subscribe" onclick="location.href='membership.html'">SUBSCRIBE</button>
+            </nav>
+        </div>
+    </header>
+
+    <a href="about.html#gallery" class="back-button">
+        <i class="fas fa-arrow-left"></i> Back
+    </a>
+
+    <main>
+        <section class="full-gallery">
+            <div class="container">
+                <div class="section-header">
+                    <span>VISUAL TOUR</span>
+                    <h2>Inside Dominion</h2>
+                    <p class="section-subtitle">Experience our world-class facilities</p>
+                </div>
+                <div class="gallery-masonry" id="galleryContainer">
+                    <div class="gallery-item">
+                        <img src="Images/gallery1.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery2.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery3.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery4.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery5.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery6.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery7.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery8.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery9.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery10.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery11.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery12.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery13.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery14.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery15.jpg">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="Images/gallery16.jpg">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <div class="footer-logo-wrapper">
+                        <img src="Images/logo.png" class="footer-logo" alt="Dominion Logo">
+                        <h4>DOMINION</h4>
+                    </div>
+                    <p>Transform your body and mind with Dominion. We provide world-class fitness facilities and expert
+                        guidance to help you achieve your goals.</p>
+                    <div class="social">
+                        <i class="fab fa-facebook-f"></i>
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-twitter"></i>
+                        <i class="fab fa-youtube"></i>
+                    </div>
+                </div>
+                <div class="footer-col" style="margin-left: 100px;">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="programs.html">Programs</a></li>
+                        <li><a href="trainers.html">Trainers</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="schedule.html">Schedule</a></li>
+                        <li><a href="merch.html">Merchandise</a></li>
+                        <li><a href="health.html">Health & Nutrition</a></li>
+                        <li><a href="membership.html">Membership</a></li>
+                        <li><a href="developers.html">Developers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Opening Hours</h4>
+                    <p><i class="far fa-calendar-alt"></i> Monday - Saturday: 6:00am - 8:00pm</p>
+                    <p><i class="far fa-calendar-alt"></i> Sunday: 7:00am - 5:00pm</p>
+                    <p class="location-info"><i class="fas fa-map-marker-alt"></i> 3F, Dalope Commercial Bldg, 771 T.
+                        Claudio, Morong, 1960 Rizal</p>
+                    <p><i class="fas fa-phone"></i> +123 (235)-375</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>
