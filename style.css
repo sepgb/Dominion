@@ -760,6 +760,23 @@ footer {
 }
 
 @media (max-width: 768px) {
+
+    .section-header {
+        margin: 40px 0 30px;
+    }
+
+    .section-header h2 {
+        font-size: 30px;
+        margin-top: -3px;
+        line-height: 1.1;
+    }
+
+    .section-subtitle {
+        margin-top: 5px;
+        font-size: 16px;
+        line-height: 1.1;
+    }
+
     header {
         position: relative !important;
     }
@@ -776,7 +793,7 @@ footer {
     }
 
     .container {
-        padding: 0 20px;
+        padding: 0 10px;
     }
 
     .navbar {

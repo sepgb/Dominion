@@ -9,9 +9,48 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
     <style>
-        .section-header {
+        /* ---------- GLOBAL RESET & FIXES ---------- */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        img,
+        iframe,
+        video,
+        embed {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        .contact-section,
+        footer,
+        header,
+        main {
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        section-header {
             text-align: center;
-            margin: 40px 0 60px;
+            margin: 40px 0 35px;
         }
 
         .contact-grid {
@@ -51,6 +90,7 @@
             justify-content: center;
             color: #e53e3e;
             font-size: 24px;
+            flex-shrink: 0;
         }
 
         .info-text h4 {
@@ -86,7 +126,9 @@
         }
 
         .btn-developer {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
             background: #e53e3e;
             color: white;
             padding: 14px 32px;
@@ -105,27 +147,126 @@
         }
 
         @media (max-width: 768px) {
-            .section-header {
-                margin: 40px 0 30px;
-            }
-
-            .section-header h2 {
-                font-size: 30px;
-                margin-top: -10px;
-            }
-
-            .section-subtitle {
-                margin-top: 0px;
-                font-size: 16px;
-                line-height: 1.1;
+            .container {
+                padding: 0 20px;
             }
 
             .contact-grid {
+                display: flex;
                 flex-direction: column;
+                gap: 30px;
+                width: 100%;
+            }
+
+            .contact-info,
+            .map-container {
+                width: 100%;
+                max-width: 100%;
+                flex: none;
+            }
+
+            .contact-info {
+                padding: 28px 20px;
             }
 
             .contact-info h3 {
                 font-size: 24px;
+                margin-bottom: 20px;
+            }
+
+            .info-item {
+                gap: 16px;
+                flex-wrap: wrap;
+            }
+
+            .info-icon {
+                width: 52px;
+                height: 52px;
+                background: #fef5f5;
+                font-size: 22px;
+                flex-shrink: 0;
+            }
+
+            .info-text h4 {
+                font-size: 17px;
+            }
+
+            .info-text p {
+                font-size: 14px;
+                word-break: break-word;
+            }
+
+            .map-container {
+                min-height: auto;
+                border-radius: 24px;
+            }
+
+            .map-container iframe {
+                width: 100%;
+                min-height: 320px;
+                height: auto;
+                display: block;
+            }
+
+            .developer-cta {
+                margin-top: 50px;
+            }
+
+            .btn-developer {
+                padding: 12px 28px;
+                font-size: 14px;
+            }
+
+            .footer-grid {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 40px;
+            }
+
+            .footer-col {
+                width: 100%;
+                margin-left: 0 !important;
+                flex: 0 0 100%;
+            }
+
+            .footer-col:first-child {
+                margin-top: 0;
+            }
+
+            .footer-logo-wrapper {
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                margin-bottom: 16px;
+            }
+
+            .social {
+                margin-top: 20px;
+                display: flex;
+                gap: 18px;
+            }
+
+            .footer-col ul li {
+                margin-bottom: 10px;
+            }
+
+            .footer-col p {
+                word-break: break-word;
+            }
+
+            .location-info {
+                display: inline-block;
+                word-break: break-word;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 16px;
+            }
+
+            .contact-info {
+                padding: 24px 16px;
             }
 
             .info-item {
@@ -133,15 +274,40 @@
             }
 
             .info-icon {
-                width: 60px;
-                height: 50px;
+                width: 46px;
+                height: 46px;
                 font-size: 20px;
-                color: none;
-                background: none;
             }
 
             .map-container iframe {
-                min-height: 300px;
+                min-height: 260px;
+            }
+
+            .btn-developer {
+                padding: 10px 22px;
+                font-size: 13px;
+            }
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-col:nth-child(2) {
+            margin-left: 100px;
+        }
+
+        @media (max-width: 768px) {
+            .footer-col:nth-child(2) {
+                margin-left: 0 !important;
             }
         }
     </style>
